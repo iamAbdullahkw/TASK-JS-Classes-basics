@@ -21,7 +21,46 @@
  */
 class Person {
   // continue the code here
+
+  constructor(firstName, LastName, gender, birthyear) {
+    this.firstName = firstName;
+    this.LastName = LastName;
+    this.gender = gender;
+    this.birthyear = birthyear;
+  }
+
+  printName = () => {
+    console.log(this.firstName, this.LastName);
+  };
+
+  calcuateage = (currentYear) => {
+    return currentYear - this.birthyear;
+  };
 }
+
+const person1 = new Person("abdullah", "fahad", "male", 1995);
+person1.printName();
+
+const person2 = new Person();
+console.log(person1.calcuateage(2023));
+
+const person3 = new Person("Ali", "Mohammed", "male", 1999);
+person3.printName();
+
+const person4 = new Person();
+console.log(person3.calcuateage(2023));
+
+const person5 = new Person("Jaber", "Khaled", "male", 2000);
+person5.printName();
+
+const person6 = new Person();
+console.log(person5.calcuateage(2023));
+
+const sum =
+  person1.calcuateage(2023) +
+  person3.calcuateage(2023) +
+  person5.calcuateage(2023);
+console.log(sum);
 
 /** (Question 2): (15000 Points)
  * 1. Write a class `Movie`, give it the following properties
