@@ -85,7 +85,45 @@ console.log(sum);
 
 class Movie {
   // continue the code here
+  constructor(title, duration, gener) {
+    this.title = title;
+    this.duration = duration;
+    this.gener = gener;
+    this.ratings = [];
+  }
+
+  rate(rating) {
+    if (rating > 0 && rating < 10) return this.ratings.push(rating);
+  }
+
+  // calcuattheaverage = (sumOfValues) => {
+  //   sumOfValues.reduce = (currentvalue, countOfValues) =>
+  //     currentvalue + countOfValues;
+
+  //   return sumOfValues / amount;
+  // };
+  calcuatTheAverage() {
+    let total = 0;
+    this.ratings.forEach((rating) => {
+      total += rating;
+    });
+    return total / this.ratings.length;
+  }
 }
+
+const mymovie = new Movie("the man", 60, "action");
+console.log(mymovie);
+
+const mymovi2 = new Movie("the man222", 60, "action");
+console.log(mymovi2);
+mymovi2.rate(7);
+mymovi2.rate(10);
+mymovi2.rate(6);
+mymovi2.rate(8);
+console.log(mymovi2);
+
+const mymovi3 = new Movie("the man", 60, "action");
+console.log(mymovi2.calcuatTheAverage());
 
 /** (Question 3): (1000 Points)
  * 1. Create a class `Actor` that inherits `Person`, and adds the following properties
@@ -97,3 +135,17 @@ class Movie {
  */
 
 // write the class here
+
+class Actor extends Person {
+  constructor(firstName, LastName, gender, birthyear) {
+    super(firstName, LastName, gender, birthyear);
+    this.Movies = [];
+  }
+  addMovie(movie) {
+    this.Movies.push(movie);
+  }
+}
+
+const Actor1 = new Actor("ali", "ahmed", "male", 1234);
+Actor1.addMovie("Network");
+console.log(Actor1.Movies);
